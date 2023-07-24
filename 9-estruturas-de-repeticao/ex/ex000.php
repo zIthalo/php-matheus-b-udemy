@@ -1,5 +1,5 @@
 <?php 
-$arr = ['carro', 13, 'moto', false, 'barco', 'avião', true, 'foguete', 23];
+$arr = ['carro', 13, 'moto', false, 'barco', 'avião', true, 'foguete', 23, 55, 'jaca', 'juca', 101, 65, 67, 'tiggo', 'celta'];
 
 $x = count($arr); #Esta function vai me retornar o tamanho do meu array;
 $y = 0;
@@ -29,7 +29,7 @@ $c = 0;
 
 while ($c < $c1) {
     if (is_numeric($arr[$c])) {
-        echo "$arr[$c]";
+        echo "$arr[$c] <br>";
     }
     $c++;
 }
