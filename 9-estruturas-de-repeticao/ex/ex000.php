@@ -10,7 +10,7 @@ while ($y < $x) { #enquanto y for < que x, que recebeu o tamanho do meu array fa
     }
     $y++; #y + 1
 }
-echo '<h3>Imprimindo somente os booleans do array.</h3>';
+echo '<h3>Imprimindo somente os BOOLEANS do array.</h3>';
 
 $a = count($arr);
 $b = 0;
