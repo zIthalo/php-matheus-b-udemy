@@ -1,32 +1,32 @@
 <?php 
     /*
     1- criar um array
-    2- transformar o array em string e saparar cada índice por vírgula
+    2- transformar o array em string e saparar cada índice por vírgula V
     __________________________________x________________________________________
 
-    1-  criar uma função que receba 3 números e que multiplique os 3
+    1-  criar uma função que receba 3 números e que multiplique os 3 V
     __________________________________x________________________________________
     
-    1- criar uma função que receba um nome e um sobrenome e imprima eles concatenados
+    1- criar uma função que receba um nome e um sobrenome e imprima eles concatenados V
 
     __________________________________x________________________________________
 
-    1- fazer uma função que receba um nome e a idade de uma pessoa e imprima uma saudação
+    1- fazer uma função que receba um nome e a idade de uma pessoa e imprima uma saudação V
     
     __________________________________x________________________________________
 
-    1- fazer uma função que diga se um número é par ou ímpar
+    1- fazer uma função que diga se um número é par ou ímpar V
 
     __________________________________x________________________________________
 
-    1- fazer uma função que receba um número e retorne ele ao quadrado
+    1- fazer uma função que receba um número e retorne ele ao quadrado V
 
     __________________________________x________________________________________
-
-    1- criar um array
-    2- preencher este array com loop
-    3- retornar os números maiores que 7 deste array
-    4- faça isso criando uma função
+ 
+    1- criar um array V
+    2- preencher este array com loop V
+    3- retornar os números maiores que 7 deste array V
+    4- faça isso criando uma função V
 
     __________________________________x________________________________________
 
@@ -96,5 +96,147 @@
     __________________________________x________________________________________
     */
 
+    #mission 01-
+    echo "<h2>Mission 01</h2>";
+    $array = [];
+    for ($i=0; $i < 20; $i++) { 
+        array_push($array, $i);//quem eu quero preencher, com o que eu quero preencher;
+    }
+    
+    function transformaArrStr($ar){
+        
+        return "<p>" . implode(", ", $ar) . "</p>";
+    }
+
+    var_dump(transformaArrStr($array));
+
+    echo "<h2>Mission 02</h2>";
+
+    function multiplica3($a = 0, $b = 0, $c = 0){
+        $multiplicando = $a * $b * $c;
+        return "A multiplicação entre $a, $b e $c é: $multiplicando";
+    }
+
+    $m1 = 3;
+    $m2 = 5;
+    $m3 = 10;
+
+    echo multiplica3($m1, $m2, $m3);
+
+    echo "<h2>Mission 03</h2>";
+
+    function nomeSobrenomeConcat($n, $s){
+        $concat = "Olá, $n $s!";
+        return $concat;
+    }
+    $nome = 'Ithalo';
+    $sobrenome = 'Willian';
+    echo nomeSobrenomeConcat($nome, $sobrenome);
+
+    echo "<h2>Mission 04</h2>";
+
+    function nomeIdadeMsg($n, $i){
+        if (is_string($n) && is_int($i)) {
+            $sauda = "Meu nome é $n, tenho $i anos.";
+            return $sauda;
+        }else {
+            return "ERRO: Digite seu nome e a sua idade";
+        }
+    }
+    $idade = 26;
+    echo nomeIdadeMsg($nome, 26);
+
+    echo "<h2>Mission 05</h2>";
+
+    function numeroeParOuImpar($n){
+        if (is_int($n)) {
+            if ($n%2 == 0) {
+                return "O número <strong>$n</strong> é par<br>";
+            }else{
+                return "O número <strong>$n</strong> é ímpar<br>";
+            }
+        } else {
+            return "ERRO: Digite um número inteiro<br>";
+        }
+    }
+    $n1 = 30;
+    $n2 = 41;
+
+    echo numeroeParOuImpar($n1);
+    echo numeroeParOuImpar($n2);
+
+    echo "<h2>Mission 06</h2>";
+
+    function retornaAoQuad($n){
+        if (is_numeric($n)) {
+            $quad = $n ** 2;
+            return "O número $n ao quadrado fica: $quad<br>";
+        } else {
+            return "ERRO: Digite um número<br>";
+        }
+    }
+
+    echo retornaAoQuad(30);
+
+    echo "<h2>Mission 07</h2>";
+
+    $arrPre = [];
+
+    for ($i=0; $i < 20; $i++) { 
+        array_push($arrPre, $i);
+    }
+    function maiorQueSete($arr){
+        $guardaVal = [];
+        if (is_array($arr)) {
+            for ($i=0; $i < count($arr); $i++) { 
+                if ($arr[$i] > 7) {
+                    array_push($guardaVal, $i);
+                }
+            }
+            return implode(", ",$guardaVal);
+        }
+    }
+    echo 'Retornando os valores maiores que 7 do array ' . maiorQueSete($arrPre) . '<br>';
+
+    echo "<h2>Mission 08</h2>";
+
 
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: goldenrod;
+            
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
