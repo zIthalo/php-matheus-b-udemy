@@ -30,19 +30,19 @@
 
     __________________________________x________________________________________
 
-    1- Crie uma função chamada sumEvenNumbers que recebe um número inteiro positivo como parâmetro.
+    1- Crie uma função chamada sumEvenNumbers que recebe um número inteiro positivo como parâmetro. V
 
-    2- A função deve retornar a soma de todos os números pares de 1 até o número fornecido, inclusive.
+    2- A função deve retornar a soma de todos os números pares de 1 até o número fornecido, inclusive. V
 
-    3- Utilize uma estrutura de repetição para percorrer os números e uma variável para acumular a soma.
+    3- Utilize uma estrutura de repetição para percorrer os números e uma variável para acumular a soma. V
 
     __________________________________x________________________________________
 
-    1-EXERCÍCIO COM FUNCTIONS DE PARAMS COM VALOR DEFAULT;
-    2-CRIAR FUNÇÃO CHAMADA DEFINE COR DE CARRO;
-    3-ELA TERÁ UM PARAM DEFAULT CHAMADO COR E COM O VALOR VERMELHA;
-    4-RETORNE A COR DO CARRO;
-    5-RETORNE TANTO COM O VALOR DO PARAM DEFAULT COMO COM A COR;
+    1-EXERCÍCIO COM FUNCTIONS DE PARAMS COM VALOR DEFAULT; V
+    2-CRIAR FUNÇÃO CHAMADA DEFINE COR DE CARRO; V
+    3-ELA TERÁ UM PARAM DEFAULT CHAMADO COR E COM O VALOR VERMELHA; V
+    4-RETORNE A COR DO CARRO;V
+    5-RETORNE TANTO COM O VALOR DO PARAM DEFAULT COMO COM A COR;V
 
     __________________________________x________________________________________
 
@@ -199,6 +199,90 @@
     echo 'Retornando os valores maiores que 7 do array ' . maiorQueSete($arrPre) . '<br>';
 
     echo "<h2>Mission 08</h2>";
+
+    function sumEvenNumbers($n){
+        $par = 0;
+        $soma = 0;
+        $tot = 0;
+        if (is_int($n) && $n >= 10) {
+            for ($i=0; $i < $n; $i++) { 
+                if ($i%2 == 0) {
+                    $par = $i;
+                    $soma = $par + $i;
+                    $tot += $soma;
+                    echo "Somando $par + $i = $soma <br>";
+                }
+            }
+            return "Total somado: $tot <br>";
+        } else {
+            return "ERRO <br>";
+        }
+    }
+
+    echo sumEvenNumbers(10);
+
+    echo "<h2>Mission 09</h2>";
+
+    function defineCorCarro($carro, $def = 'Vermelha'){
+        if (is_string($carro) && is_string($def)) {
+            return "Carro $carro da cor $def <br>";
+        } else {
+            return "ERRO: Digite o nome do seu carro e a cor. <br>";
+        }
+
+    }
+    $gol = 'VW Gol';
+    $cor = 'Prata';
+    $astra = 'GM Astra';
+    echo defineCorCarro($gol, $cor);
+    echo defineCorCarro($astra);
+   
+    echo "<h2>Mission 10</h2>";
+    /*
+    1-Crie uma função chamada countVowels que recebe uma string como parâmetro.
+
+    2-A função deve retornar a quantidade de vogais presentes na string.
+
+    3-Utilize uma estrutura de repetição para percorrer cada caractere da string.
+
+    4-Utilize uma variável para armazenar o contador de vogais.
+
+    5-Considere que as vogais são as letras "a", "e", "i", "o" e "u", em minúsculas ou maiúsculas.    
+
+    Dica:
+
+    Inicialize o contador de vogais com zero antes do início do loop.
+
+    Utilize um loop for para percorrer cada caractere da string.
+
+    Dentro do loop, verifique se o caractere é uma vogal, utilizando a função strpos para buscar o caractere na sequência "aeiouAEIOU". Se a função retornar um valor diferente de false, significa que o caractere é uma vogal.
+
+    Se o caractere for uma vogal, incremente o contador em 1.
+
+    Ao final do loop, retorne o valor do contador de vogais.
+    */
+
+    function countVowels($str){
+        $vowels =  array('a', 'á', 'e', 'é' , 'i', 'í' ,'o', 'ó', 'u', 'ú', 'A', 'Á', 'E', 'É', 'I', 'Í' , 'O', 'Ó' ,'U', 'Ú');
+        $count = 0;
+        if (is_string($str)) {
+            for ($i=0; $i < strlen($str) ; $i++) { 
+                if (in_array($str[$i], $vowels)) { //se a posição de I dentro da var str tiver algum valor de vowels
+                    $count ++;
+                }
+            }
+            
+            return "A palavra $str tem $count vogais;<br>";
+        } else {
+            return "ERRO: Digite uma palavra <br> Você digitou: $str <br>";
+        }
+    }
+    $word = 'característica';
+    $animal = 'avestruz';
+    $nome = 'Ithalo';
+    echo countVowels($word);
+    echo countVowels($animal);
+    echo countVowels($nome);
 
 
 ?>
