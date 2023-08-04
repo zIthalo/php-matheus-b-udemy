@@ -20,9 +20,7 @@ $str2 = "the rat ABC";
 $negativa = substr($str2,-3, 8); # aqui quando eu ponho números negativos eu pego de trás para frente, neste caso posso traduzir assim:
 #substr($str, pegue do índice -3 que começa no índice 8)
 
+
 echo $negativa . '<br>';
 
-$negativa2 = substr($str2, 8, -3);
-
-echo "$negativa2 <br>";
 ?>
