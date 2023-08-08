@@ -12,5 +12,5 @@
 
  $resultado = array_reduce($arr, "soma"); #quando eu for declarar a função eu tenho que declará-la como str;
 
- echo "$resultado <br>";
+ echo "$resultado <br>";# no caso ele retornará somente o resultado da soma dos índices do array, ou seja, transformou um array em um número int
 ?>
