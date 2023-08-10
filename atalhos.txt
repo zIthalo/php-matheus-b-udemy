@@ -7,3 +7,6 @@
 // ctrl + page down - (proxima aba);
 // ctrl + page up - (aba anterior);
 // ctrl + g - acessar linha/coluna ex: Vai abrir uma caixinha e você coloca :17 ← este comando vai acessar a linha 17;
+//Win + ↑ = maximiza tela
+//Win + ↓ = minimiza tela
+//Win + ← ou → = movimenta tela na direção
