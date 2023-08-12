@@ -48,3 +48,5 @@ Windows/Linux: Ctrl + k Ctrl + s
 
 Comentar linhas
 Windows/Linux: Ctrl + k Ctrl + c
+
+//Doucmentação php: https://www.php.net/manual/pt_BR/index.php
