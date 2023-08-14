@@ -9,6 +9,7 @@
         <p>O seu blog de programação</p>
     </section>
     <section id="posts-container">
+
         <?php foreach ($posts as $post): ?>
             <section class="post-box">
                 <img src="<?=$BASE_URL;?>/img/<?= $post['img'];?>" alt="<?= $post['title'];?>">
@@ -22,6 +23,7 @@
                     <?php foreach($post['tags'] as $tag):?>
                         <a href="#"><?=$tag?></a>
                     <?php endforeach;?>
+                    
                 </section>
             </section>
         <?php endforeach;?>

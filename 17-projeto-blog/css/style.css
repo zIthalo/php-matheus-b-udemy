@@ -100,7 +100,7 @@ main{
 }
 
 .post-box .post-description{
-    color:#6c6b6b;
+    color:#4e4e4e;
 }
 .tags-container{
     margin-top: 10px;
@@ -111,7 +111,71 @@ main{
     display: inline;
     margin-right: 5px;
 }
+/* POST */
+#post-container{
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: auto;
+    grid-template-areas: "main sidebar";
+    grid-gap: 10px;
+    padding-top: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 250px;
+}
+.content-container{
+    grid-area: main;
+}
+#main-title{
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+#post-description{
+    font-style: italic;
+    margin-bottom: 40px;
+}
+.post-content{
+    line-height: 1.8;
+    text-align: justify;
+    margin: 10px 0;
+    color: #000000;
+}
+.img-container {
+    margin-bottom: 30px;
+}
+.img-container img{ /*quando não tem vírgula eu estilizo somente a img*/
+    width: 60%;
+}
 
+/* POST ASIDE */
+.nav-container {
+    grid-area: main;
+}
+#tags-title, #categories-title{ /*quando tem vírgula eu estou dando o mesmo estilo para os dois IDs*/
+    font-size: 24px;
+    margin-bottom: 10px;
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: 300;
+}
+
+#tags-list, #categories-list{
+    list-style: none;
+    
+}
+#tags-list li, #categories-list li{ /*como dá para perceber aqui eu só tô estilizando os li's destes IDs*/
+    margin-bottom: 10px;
+    
+}
+#tags-list a, #categories-list a { /*como dá para perceber aqui eu só tô estilizando os a's destes IDs*/
+    color: #4e4e4e;
+    transition: .3s;
+}
+#tags-list a:hover, #categories-list a:hover { /*como dá para perceber aqui eu só tô estilizando os a's destes IDs*/
+    color: #000;
+}
 /* FOOTER */
 
 footer{
@@ -122,4 +186,42 @@ footer{
     background-color: black;
     color: #fff;
     padding: 50px 0;
+}
+/*MOBILE*/
+@media(max-width: 480px){
+    /* HOME */
+    header{
+        width: 100%;
+    }
+    #logo{
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        left: 0;
+        width: 50px;
+    }
+    #navbar{
+        display: none;
+    }
+    #title-container{
+        min-width: 100%; 
+        margin-top: 20px;
+    }
+    #posts-container{
+        margin-top: 20px;
+    }
+    .post-box{
+        flex: 100% 1 0;
+        padding: 15px;
+        margin: 0;
+    }
+    /* POST */
+    #post-container {
+        grid-template-columns: 100%;
+        padding: 15px;
+        grid-template-areas: "main" "sidebar";
+    }
+    .img-container img{
+        width: 100%;
+    }
 }
