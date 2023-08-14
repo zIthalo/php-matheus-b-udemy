@@ -1,0 +1,18 @@
+    1* Pegar as pastas data e img;
+    2* crie o index.php;
+    3* Crie a $BASE_URL para poder inserir os estilos. Para inserir: <\?= $BASE_URL?> na frente do css ex <\?= $BASE_URL?>/css/style.css;
+    4* Vá no google fonts e pegue a fonte montserrat tam 300 e tam 700 (bold);
+    5* Copie o link das duas fonts e coloque no index, através da tag link;
+    6* No CSS insira as fontes como regra global usando (*{});
+    7* Cor de fundo do body #CCC;
+    8*Fazer os templates de header e footer (imports);
+    9* incluí-los via include_once();
+    10*Estilizar o header e o footer
+    11*Resgatar os dados dos posts do blog;
+    12*
+    13*
+    14*
+    15*
+    16*
+    17*
+    18*
