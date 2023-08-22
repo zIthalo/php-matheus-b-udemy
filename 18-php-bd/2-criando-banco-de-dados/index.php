@@ -7,6 +7,7 @@
     - Para criar bancos vamos utilizar o:
         CREATE DATABASE nomedobanco;
  
-
+    -Abri o phpmyadmin, dei o comando para criar o data base. para executar eu lico em go ou ctrl + enter;
+    
 */
 ?>

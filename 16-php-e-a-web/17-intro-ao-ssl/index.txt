@@ -7,4 +7,4 @@
 
     - Porém garantimos que as requisições de dados entre nosso site e servidor estejam mais seguras com a encriptação dos dados;
 
-    -Devemos apensas ter cuidado com os forms, para que sejam enviados para a URL com HTTPS, pois alguns servidores bloqueiam a conexão HTTP;
+    -Devemos apenas ter cuidado com os forms, para que sejam enviados para a URL com HTTPS, pois alguns servidores bloqueiam a conexão HTTP;

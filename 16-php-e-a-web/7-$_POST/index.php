@@ -26,6 +26,7 @@
         <input type="text" name="preco" placeholder="Preço do carro">
         </section>
         <section>
+            <!-- Se eu não colocar opicinais[] com notação de array só irá salvar a última checkbox que eu clicar -->
             <input type="checkbox" name="opcionais[]" value="Teto solar">Teto solar
         </section>
         <section>

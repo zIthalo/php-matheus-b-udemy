@@ -19,7 +19,7 @@ if ($usuario) {
     $idade = $usuario['idade'];
     $profissao = $usuario['profissao'];
 }
-// com isso acima eu quero pegar os dados do mock e colocálos no meu form lá em baixo
+// com isso acima eu quero pegar os dados do mock e colocá-los no meu form lá em baixo
 ?>
 
 <!DOCTYPE html>

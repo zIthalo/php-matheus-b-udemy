@@ -1,6 +1,6 @@
 <?php 
 /*
-    - Podemos criar um página que faz o processamento dos dados e também exibe o input de informações, isto é, não preceisa olhar o dev tools para saber qual método fou usado;
+    - Podemos criar um página que faz o processamento dos dados e também exibe o input de informações, isto é, não preceisa olhar o dev tools para saber qual método foi usado;
     
     - Para isso devemos criar um if que checa se o método de requisição ($SERVER['REQUEST_METHOD']) é GET ou POST;
     

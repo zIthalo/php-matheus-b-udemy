@@ -17,9 +17,12 @@
 # fazendo us sistema de validação de campos ↓
 // Primeiro cria-se um array para receber as validações dos campos
 $validacoes = [];
+// Agora verifica-se se o array post tem mais de 0 índices
 if (count($_POST) > 0) {
+    // Agora confirma-se quais campos foram preenchidos, e nenhum pode estar vazio
     // Se o campo nome estiver vazio ↓
     if ($_POST['nome'] === "") {
+        // Se nenhum nome for digitado um dos índices do meu array $validacoes[] vai receber isso, e estes valores de índices serão mostrados por uma ul no meu html
         $validacoes[] = 'Por favor, preencha o nome do usuário';
     }
     if ($_POST['email'] === "") {
@@ -43,9 +46,11 @@ if (count($_POST) > 0) {
     <title>Validando form</title>
 </head>
 <body>
+    <!-- ↓ pegue a quantidade de índices do meu arr validacoes -->
     <?php  if (count($validacoes)): ?>
      <ul>
         <?php foreach ($validacoes as $validacao): ?>
+        <!-- Cada índice que o meu arr validacoes recebar será exibido por um novo <li> -->
         <li><?= $validacao ?></li>
         <?php endforeach;?>
      </ul>
