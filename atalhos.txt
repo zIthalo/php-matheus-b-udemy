@@ -63,3 +63,7 @@ Programa para atalhos de tecla 3RVX;
             background-color: goldenrod;
         }
 </style>
+
+ -Append - acrescentar;
+ -Fetch - buscar;
+ -Bind - vincular;

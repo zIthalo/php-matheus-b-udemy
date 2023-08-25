@@ -86,6 +86,7 @@
     UPDATE itens SET nome = 'Gol', descricao = 'Gol 98 1.6 completo' WHERE nome ='paranauê';
 
             DELETANDO DADOS 
+
     - Para deletar dados de uma tabela vamos utilizar o DELETE FROM;
  
     - Obs: DELETE sem WHERE vai deletar todos os dados da tabela;
