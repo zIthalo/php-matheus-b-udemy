@@ -31,9 +31,18 @@ $conn = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
 // retornando apenas uma linha
 $id = 2;
 
-$stmt = $conn->prepare("SELECT * FROM itens");
-// $stmt->bindParam(':id', $id);
-$result = $stmt->fetch();
+$stmt = $conn->prepare("SELECT * FROM itens WHERE id > :id");
+$stmt->bindParam(":id", $id);
+
+$stmt->execute();
+
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+// PDO::FETCH_ASSOC - serve para os dados não virem duplicados na exibição
 
 print_r($result);
+// Retornando mais linhas
+$itens = $stmt->fetchAll(PDO::FETCH_ASSOC);
+echo '<br>';
+print_r($itens);
+
 ?>
