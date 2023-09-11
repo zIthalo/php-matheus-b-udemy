@@ -1,0 +1,337 @@
+
+            Parte 1
+
+- Criar a $BASE_URL (pasta config) Que serve para chamar a pasta raíz do projeto e linkar, com mais facilidade para os demais arquivos e pastas;
+
+- Criar a pasta e arquivo CSS;
+
+- Criar a pasta IMG e importar o logo;
+
+- Criar o index e importar o font awesome e bootstrap;
+
+            Parte 2
+
+- Criar os templates header e footer;
+
+- Fazer os includes no index de header e footer;
+
+- Crie a tag header e insira a tag nav com esta classe do bootstrap class="navbar navbar-expand-lg navbar-dark bg-primary";
+
+- linkar a img da logo e não esquecer de fazer a imagem sempre mandar pra home;
+
+-limite a img a 50px;
+
+- Crie uma div com outra dentro com a classe navbar-nav active, crie um âncora que manda para home;
+
+- dentro da mesma div crie outra âncora que manda para página de adição de contato;
+
+- crie o arquivo de create.php;
+
+- ele será parecido com o da agenda, então coloque todo do index nele só mudando o título.
+
+            Parte 3
+
+- Criar o banco de dados, criar a tabela contacts com os campos id int unsigned auto increment primary key, name varchar 150, phone varchar 20, observations text
+
+- Criar a conexão que será feta com o PDO
+
+- Fazer o trycatch, no catch: (PDOException $e) $error->$e->getMessage(); echo "Erro: $error";
+
+- Dentro do try colocar a $conn, $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+
+- Para testar adicione a conexão no header para ver se funcionou;
+
+            Parte 4
+
+- Criar o process.php que será responsável por fazer todo o CRUD
+ 
+- Dê um session_start();
+ 
+- Inclua o connection.php e o url.php
+ 
+- crie a $query e dê um select * from contacts;
+ 
+- crie o $stmt = $conn->prepare($query);
+
+- dê um execute no $stmt;
+  
+- crie a $contacts = $stmt->fetchAll(), para receber todos os contatos através da PDO;
+  
+- Inclua o process no header;
+  
+- Crie a limpeza de mensagem de sessão com o if isset($_SESSION['msg']) 
+  
+- crie $printMsg = $_SESSION['msg']; para mostrar a mensagem
+
+- $_SESSION['msg'] = ''; para limpar a mensagem
+
+
+            Parte 5
+
+- No index criar a tag div com a class container; 
+ 
+- Nela faça um check if isset($printMsg && printMsg != '') faça o endif e dentro da validação coloque um p de html com id msg que tem o conteúdo de $printMsg dica: <?=?>;
+ 
+- Depois disso crie um h1 com o id de main-title com o valor de Minha agenda
+ 
+- Agora para ser exibida a sua lista do db faça uma verificação if = count($contacts > 0), dentro da verificação coloque um p dizendo TEM CONTATOS (isso é pra testar se a comunicação deu certo);
+ 
+- Agora faça um else:, depois o endif; e dentro do else coloque um p com o id empty-list-text com o valor Ainda não há contatos na sua lista.
+ 
+- Depois disso crie dentro do mesmo p um a mandando ir para o create.php dica: use a $BASE_URL
+ 
+- Como texto da âncora crie um: clique aqui para adicionar;
+ 
+- Vá no process e inicie o contacts como um array vazio depois dos includes;
+
+- OPCIONAL: Para testar logo de cara adicione dois contatos para ver se o sistema para no if e não no else;
+ 
+- Para inserir pode ser utilizado ou o comando insert ou inserir pelo insert do phpmyadmin; com isso aparecerá a mensagem tem contatos;
+ 
+- Agora para os contatos do banco aparecerem em uma tabela, crie uma table com a classe table e o id contacts-table;
+ 
+- Agora crie uma thead e dentro crie uma tr dentro da tr crie 4 th(tableheading), com scope col sendo uma para o id, uma para o nome e outra para o telefone o último deixe em branco para adicionar as ações da tabela;
+ 
+- Depois da thead e dentro da table, crie uma tbody com um foreach ($contacts as $contact):, adicione o endforeach; e entre eles crie uma tr com 3 tds com scope row;
+ 
+- Dentro das tds vamos exibir os campos do db então para isso colocamos o um td com <?= $contact["id"]?>, outro com <?= $contact["name"]?> e por último <?= $contact["phone"]?>;
+ 
+-  se na sua tabela tiver outro campo é só adicionar assim, mas para isso adicione uma nova th com scope de col e o nome da coluna;
+ 
+- só com isso já serão exibidos os dados;
+ 
+- Lembra que tinha uma th sem valor? Ela agora servirá de coluna para colocarmos os botões de ver, editar e deletar o contato;
+ 
+- Para isso vamos criar um td com a classe actions, depois um a sem link no momento, dentro do a vamos inserir a tag i com a classe fas fa-eye check-icon;
+ 
+- Agora o botão/ícone edit: Para isso repita o processo acima sendo que agora na classe da tag i coloque far fa-edit edit-icon;
+ 
+- Para o delete criaremos um button type submit e uma tag i com a classe fas fa-times delete-icon;
+ 
+            Parte 6 (CSS da home)
+
+
+- Até então .navbar-brand img {width: 50px;}
+ 
+- Vamos ajeitar o #main-title{ text-align: center; margin: 15px 0 30px}
+ 
+- Agora vamos ajeitar a #contacts-table{max-width:800px; margin: 0 auto;}
+ 
+- Vamos ajeitar a #contacts-table thead {color: white; background-color:blue;}
+ 
+- Vamos ajeitar a msg de quanndo não tiver registros no banco na #empty-list-text {text-align: center;}
+ 
+- vamos estilizar, agora a msg que aparecerá na home: #msg{color: green; background: lightgreen; border: 1px solid #C3E6CB; padding: 10px; text-align: center; max-width: 500px; margin: 0 auto; margin-top: 30px;}
+ 
+- Acima do #empty-list-text adicione .actions{ text-align: right; width: 50px;}
+ 
+- Os ícones das actions: .actions i {font-size: 18px; margin-right: 5px; }
+ 
+- Agora vamos estilizar cada ícone: .check-icon{color: #1E7E34; }
+ 
+- .edit-icon{color: #007BFF;}
+ 
+- .delete-icon{color: #BD2130;}
+ 
+- Vamos agora tirar o estili quadrado do botão de delete: adicione uma clase ao botão = .delete-btn{background-color: transparent; border: none; padding: 0;}
+ 
+- Para encerrar vamos deixar os ids em negrito, adicione uma classe para a primeira td do tr do tbody, uma classe chamada col-id estilize assim: col-id{font-weight: bold;} 
+ 
+
+            Parte 7 (Vizualização de registro)
+
+- Temos que saber primeiro, como achar esse registro no banco para isso precisaremos do id, depois onde estiver o ícone do olho no html no href do a colocamos a <?=$BASE_URL?>show.php?id=<?=$contact["id"]. Passamos como query param o $contact["id"] para quando a gente clicar ir diretamente naquele id que a gente quer vizualizar os detalhes, quando passarmos o mouse em cima irá mostrar o id que vamos editar no canto inferior esquerdo da tela.  Agora vamos criar o arquivo show.php.
+ 
+- Dentro do show php, vamos incluir o header.php e o footer.php e no entre estes includes vamos codificar o show.php;
+ 
+- Criaremos uma div com a classe container e um id de view-contact-container;
+ 
+- Colocaremos um h1 com um id de main-title, nele a gente vai mostrar o contato, para isso chamaremos a $contact["name"] (<?=?>). Só que quando a gente clicar, não vai aparecer a var de $contact, para isso a gente vai fazer alguns ajustes no process
+ 
+- Já temos um array que retorna todos os contatos ($contacts = []) precisamos de um que retorne só um contato por id;
+ 
+- Para isso antes do array contacts e abaixo dos includes, vamos criar uma var para o $id;
+ 
+- Depois disso vamos fazer uma verificação if !empty($_GET){$id = $_GET["id"]}
+ 
+- No passo acima vemos que se o get não estiver vazio o $id recebe o id que vier no get
+ 
+- Criaremos outra verificação: if(!empty($id)){}else{ aqui dentro eu coloco tudo que o meu $contacts = [] estava recebendo, isto é, além do proprio $contacts = [] também vou inserir $query"SELECT * FROM contacts", $stmt = $conn->prepare($query), $stmt->execute() $contacts = $stmt->fetchAll()}
+ 
+- Se o id não estiver vazio faremos alguma coisa. E como faremos para receber somente um id daquele query param?
+ 
+- Faremos assim dentro do if: $query = "SELECT * FROM contacts WHERE id = :id";
+ 
+- Agora vamos fazer o bind param: $stmt = $conn->prepare($query);
+ 
+- $stmt->bindParam(":id", $id); O :id da $query será o valor da var $id, que veio pela verificação $_GET["id"]; que eu fiz no primeiro if.
+ 
+- Vamos executar o $stmt->execute();
+ 
+- Crio a var $contact e ela vai receber $stmt->fetch();
+ 
+- Agora quando eu clico no olho em cada linha da tabela, aparecerá o respectivo nome da pessoa.
+ 
+- Voltando ao arquivo show.php, eu crio 4 p´s um com a classe bold, abaixo dele o próximo recebendo <?=$contact["phone"]?>, outro com a classe bold e outro recebendo <?=$contact["observations"]?>
+ 
+- Com isso já é possível ver todos os dados de qualquer contato que eu clicar no olho
+
+
+        Parte 8 (Botão voltar e estilizações da página de observations)
+
+- Começando com CSS #view-contact-container{max-width: 500px; margin: 0 auto;} para não deixar o texto ocupando a tela inteira e centralizar os itens ao centro com margin 0 auto;
+ 
+- Agora vamos estilizar os elementos que têm a classe bold. .bold{font-weight: bold;} isso a gente chama de classe helper onde eu possa adicionar em qualquer elemento e estilizá-lo de acordo com os valores dessa classe, como se fosse uma classe, bootstrap;
+
+- Agora vamos estilizar o botão de voltar. Criaremos um arquivo chamado backbtn.html dentro da pasta templates, nele vamos estilizar o botão de voltar, e vamos incluílo nas nossas pages, sendo elas, show, create, delete, por ex;
+ 
+- Primeiro criaremos uma div com o id de back-linkk-container;
+
+- Dentro da div um a com o nome voltar, id de back-link e no href colaremos o BASE_URLindex.php. Este botão sempre mandará de volta para home page.
+ 
+- Onde incluir o backbtn? Primeiro vamos incluir ele no show, para fazer isso vamos abrir a tag php  include_once("templates/backbtn.html"). Vamos incluir ele sempre acima dos h1 de uma página;
+
+- Agora para estilizar o botão, vamos chamar pelo id #back-link-container{display: block; width: 500px; margin: 30px auto 0;} aqui estamos deixando o botão em display block, limitando a largura a 500px, dando uma espaçamento para cima, centralizando nas laterais, e sem espaçamento para baixo;
+ 
+- Agora vamos estilizar o link: #back-link{border: 1px solid #007BFF; color #007BFF; border-radius: 4px; padding: 5px;}
+
+- Vamos fazer um hover para remover a decoração #back-link:hover{text-decoration: none;}
+ 
+                Parte 9 (Agora vamos criar a create.php)
+
+- Já foi criada a create.php e já foram inseridos os dois include_once para header e footer;
+
+- Agora vamos criar uma div.container e dentro dela vamos inserir o h1#main-title com o valor de criar contato
+ 
+- Em cima do título colocaremos o include_once do backbtn.html
+
+- Agora vamos criar o form com a action config/process.php (lembrar da BASE_URL) e no method post;
+ 
+- Agora dentro do form vamos criar um input type hidden, name type, value create; Ele vai guiar o projeto no process, para o que eu vou querer fazer com este form. No caso será um create.
+ 
+- Agora vamos criar uma div com a classe form-group (classe do bootstrap), dentro dela terá um label for name e um input type text, class form control(classe bootstrap), um id de name e um name de name placeholder(OPCIONAL);
+ 
+- Agora vamos criar um button com o type submit class btn btn-primary (bootstrap) >Cadastrar<
+ 
+- Agora copie toda div e cole, só agora mudando o for da label para phone, o id do input para phone e o name do input para phone coloque na label Telefone do contato;
+ 
+- Repita este processo mais uma vez (se precisar de mais é porque você tem outros campos no seu banco de dados ou prendende inserir) agora para colocar as observations do contato;
+ 
+- Para isso mude a label para observations o id do input e name para observations só que agora seu input será uma textarea, que tem tag de fechamento. na área do id e name coloque ainda isto: rows = 3.
+ 
+- Vá no CSS e faça #create-form, #edit-form{max-width:500px; margin: 0;} Crimaos o #edit-form para adiantar o processo. coloque o id no form do create #create-form e no id do edit #edit-form.
+ 
+                Parte 10 [Inserindo Contatos na Agenda]
+
+- Primeiro vamos verificar se veio algum dado no post;
+ 
+- Para isso vamos criar a $data = $_POST;
+ 
+- Vamos verificá-la: if !empty($data){Aqui no if eu coloco a priori um printr retornando $data e ao lado um exit; Continua no próximo topico }else{aqui no else vou jogar todas as queries feitas anteriormente de retornar um dado do contato e retornar todos os contatos (faça o teste de ver se ainda está tudo funcionando)}
+ 
+- Ainda no if, agora vamos verificar o tipo do $_POST que vem na $data;
+
+- if $data["type"] === "create"{(OPCIONAL: posso dar um echo com qualquer valorpra ver se entrei na página de create)}
+ 
+- Ainda dentro do if eu já posso apagar o echo e criar essas vars $name = $data["name"], $phone = $data["phone"], $observations = $data["observations"] (lembrando que se eu tiver mais campos eu insiro aqui mais vars para cada campo, também tenho que lembrar de criar mais campos no create caso eu precise);
+
+- Agora vamos criar a $query = "INSERT INTO contacts (os campos) VALUES (:name, :phone, :observations)"
+ 
+- $stmt = $conn->prepare($query);, $stmt->bindParam(":name", $name); [← Agora copio e colo e vou mudando o nome dos campos ex: phone, observations]
+
+- Depois disso eu vou pegar o trycatch da conexão, vou apagar tudo que estiver no try e colocar o $stmt->execute(); $_SESSION["msg"] = "Contato criado com sucesso!"; com isso a mensagem de sucesso vai aparecer.
+ 
+- Depois disso vamos no final do process.php e enceraremos a conexão fazendo: $conn = null;
+
+- Agora remova o printr do if;
+ 
+- crie um header para o index, depois do 2º if e antes do else header("Location:" . $BASE_URL . "../index.php");
+
+        Parte 11 [Atualizar o contato da agenda]
+
+- No meu if de edit eu crio um else if de $data["type"] === "edit;
+ 
+- Agora vamos criar um query de update, para isso faremos: $name = $data["name"]; $phone = $data["phone"]; $observations = $data["observations"]; $id = $data["id"]; (Vou precisar saber qual é o id para poder atualizar o contato)
+
+- Depois de feito isso vamos fazer a $query = "UPDATE contacts SET name = :name, phone = :phone, observations = :observations WHERE id = :id; 
+ 
+- Agora vamos fazer os $stmt;
+
+- $stmt = $conn->prepare($query);
+ 
+- $stmt->bindParam(":name", $name);
+
+- $stmt->bindParam(":phone", $phone);
+
+- $stmt->bindParam(":observations", $observations);
+
+- $stmt->bindParam(":id", $id);
+
+- Agora vamos pegar o trycatch, copiá-lo e colar ele aqui após o último bindParam para dar o execute
+  
+- try {$stmt->execute(); $_SESSION["msg"] = "Contato atualizado com sucesso!";} (não esquecer do catch)
+
+                Parte 12 [Deletando contatos]
+
+- Vamos para o index e vamos lá no button de delete;
+ 
+- Agora vamos recortá-lo, depois vamos criar um form com a action para $BASE_URL/config/process.php, um method = post e colar ele dentro deste form;
+ 
+- acima do button e dentro do form criaremos um input de type hidden, name type, value delete vamos colocar outro elseif no process pra ele;  
+
+- Abaixo deste criaremos outro input de type hidden e name id com value de <?= $contact["i"]?>
+ 
+- (Extra: forms de html só processam os verbos get e post);
+ 
+- Agora insira uma classe no form - delete-form, para estilizar lá no CSS;
+
+- vá para área de home no CSS e acima do delete-btn chame a delete-form{display: inline-block;}
+ 
+- Vamos no proces e vamos criar um else if($data["type"] === "delete"){}
+
+- Dentro do bloco: $id = $data["id"];
+ 
+- $query = "DELETE FROM contacts WHERE id = :id";
+
+- $stmt = $conn->prepare($query);
+ 
+- $stmt->bindParam(":id", $id);
+ 
+- Copio o trycatch;
+ 
+- Mudo só a mensagem da _SESSION para "Contato removido com sucesso!";
+ 
+- termino o bloco else if;
+
+                Conclusão do projeto
+ 
+- 
+ 
+- 
+ 
+- 
+ 
+- 
+ 
+- 
+ 
+- 
+ 
+- 
+ 
+- 
+ 
+- 
+ 
+- 
+ 
+- 
+ 
+- 
+ 
+- 
+ 
+- 
+ 
+- 
+ 

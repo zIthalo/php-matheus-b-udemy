@@ -23,7 +23,7 @@ if (isset($_SESSION['msg'])) {
     <title>Agenda de Contatos</title>
 </head>
 <body>
-    <head>
+    <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <a class="navbar-brand" href="<?=$BASE_URL?>index.php">
                 <img src="<?=$BASE_URL?>img/logo.svg" alt="Agenda">
@@ -35,4 +35,4 @@ if (isset($_SESSION['msg'])) {
                 </div>
             </div>
         </nav>
-    </head>
+    </header>
